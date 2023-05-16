@@ -48,7 +48,9 @@ jobs:
           ./scripts/feeds install -a
 
       - name: Generate configuration file
-        run: cp x86.config .config
+        run: |
+          cp x86.config .config
+          make defconfig
 
       - name: Download packages
         run: make download -j16
